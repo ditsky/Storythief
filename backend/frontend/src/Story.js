@@ -32,7 +32,16 @@ class Story extends Component {
     this.props.socket.emit('post story', this.state.story + " " + this.state.value);
   }
 
+  renderPhrase = () => {
+    let phrase = <p> Phrase: "Andy Goes to the circus!" </p>;
+    return phrase;
+  }
+
   render() {
+    let phrase = null;
+    if (this.state.spy == "false"){
+      phrase = this.renderPhrase();
+    }
     return (
       <div>
         <h1 className="display-4">Game Page</h1>
@@ -43,7 +52,7 @@ class Story extends Component {
           <div className="jumbotron">
             <br>
             </br>
-            <p> Phrase: "Andy Goes to the circus!" </p>
+            {phrase}
             <p> Are you the spy?? : {this.state.spy} </p>
             <h1 className="display-4">Current Story</h1>
             <ul id="storyarea"> {this.state.story} </ul>
