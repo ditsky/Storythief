@@ -29,7 +29,17 @@ io.on('connection', socket => {
   });
 
   socket.on('start game', function(){
-    io.sockets.to(socket.room).emit('start game');
+    var clients =  io.sockets.adapter.rooms[socket.room].sockets;
+    var lastSocket = null;
+    for (var id in clients){
+      var clientSocket = io.sockets.connected[id];
+      clientSocket.random = Math.random();
+      if (lastSocket==null || clientSocket.random > lastSocket.random){
+        lastSocket = clientSocket;
+      }
+    }
+
+    io.sockets.to(socket.room).emit('start game', lastSocket.id);
   })
 
   socket.on('post story', sentence => {

@@ -31,7 +31,7 @@ class App extends Component {
             />
             <Route
               path="/game"
-                render={props => <Story {...props} socket={this.state.socket} />}
+                render={props => <Story {...props} socket={this.state.socket} user={this.state.socket.user} />}
             />
           </div>
         </BrowserRouter>

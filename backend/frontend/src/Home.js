@@ -31,6 +31,8 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
+        <h2> StoryThief </h2>
+        <p> Join a Room: </p>
         <header className="Home-header">
           <form onSubmit={this.handleSubmit} >
           <label>
@@ -41,6 +43,8 @@ class Home extends Component {
               onChange={this.handleRoomChange}
             />
           </label>
+          <br>
+          </br>
           <label>
              username:
             <input
@@ -49,6 +53,8 @@ class Home extends Component {
               onChange={this.handleUserChange}
             />
           </label>
+          <br>
+          </br>
           <input type="submit" value="Submit" />
         </form>
         </header>
