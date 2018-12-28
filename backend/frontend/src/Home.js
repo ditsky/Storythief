@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 class Home extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class Home extends Component {
           </label>
           <br>
           </br>
-          <input type="submit" value="Submit" />
+          <Button className="btn btn-primary" color="danger" type="submit" value="Submit"> Submit </Button>
         </form>
         </header>
       </div>

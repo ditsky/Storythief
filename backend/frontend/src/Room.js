@@ -18,10 +18,10 @@ class Room extends Component {
       this.setState({players: players});
     })
 
-    this.props.socket.on('start game', socket => {
+    this.props.socket.on('start game', (spy) => {
       this.props.history.push({
         pathname: '/game',
-        state: {spy: socket}
+        state: {spy: spy}
       })
     })
   }
