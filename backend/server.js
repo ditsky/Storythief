@@ -41,7 +41,6 @@ io.on('connection', socket => {
     }
 
     io.sockets.to(socket.room).emit('start game', lastSocket.id);
-
     var turn = 0;
     for (var id in clients){
       var client = io.sockets.connected[id];
@@ -53,6 +52,10 @@ io.on('connection', socket => {
   socket.on('post story', (sentence,gameTurn) => {
     io.sockets.to(socket.room).emit('post story', sentence, gameTurn);
   });
+
+  socket.on('vote', (option) => {
+    io.sockets.to(socket.room).emit('vote', option);
+  })
 
 })
 

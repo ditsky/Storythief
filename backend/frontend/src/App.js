@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from'./Home';
 import Room from'./Room';
 import Story from './Story';
+import Voting from './Voting';
 
 import socketIOClient from 'socket.io-client';
 class App extends Component {
@@ -32,6 +33,10 @@ class App extends Component {
             <Route
               path="/game"
                 render={props => <Story {...props} socket={this.state.socket} user={this.state.socket.user} />}
+            />
+            <Route
+              path="/voting"
+                render={props => <Voting {...props} socket={this.state.socket} user={this.state.socket.user} />}
             />
           </div>
         </BrowserRouter>

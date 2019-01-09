@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Players from './Players';
 
 class Story extends Component {
 
@@ -6,7 +7,7 @@ class Story extends Component {
     super(props);
     var user = this.props.socket.id;
     var spy = this.props.location.state.spy;
-    this.state = {story: "Once upon a time...", value: "", spy: user === spy, turn: 0, gameTurn: 0, players: 3};
+    this.state = {story: "Once upon a time...", value: "", spy: user === spy, turn: 0, gameTurn: 0, players: 3, totalTurns: 0};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -14,7 +15,13 @@ class Story extends Component {
   componentDidMount(){
     this.props.socket.on('post story', (story,gameTurn) => {
       console.log(story)
-      this.setState({story: story, gameTurn: gameTurn});
+      this.setState({story: story, gameTurn: gameTurn, totalTurns: this.state.totalTurns + 1});
+      if (this.state.totalTurns > 14){
+        this.props.history.push({
+          pathname: '/voting',
+          state: { spyID: this.props.location.state.spy, userID: this.props.socket.id, spy: this.state.spy, story: this.state.story, players:this.props.location.state.players}
+        })
+      }
     })
 
     this.props.socket.on('set turn', turn => {
@@ -70,6 +77,9 @@ class Story extends Component {
             <h1 className="display-4">Current Story</h1>
             <div className="jumbotron">
               <ul id="storyarea"> {this.state.story} </ul>
+            </div>
+            <div>
+              <Players players={this.props.location.state.players}> </Players>
             </div>
           </div>
       </div>
