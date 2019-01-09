@@ -9,7 +9,7 @@ import Voting from './Voting';
 import socketIOClient from 'socket.io-client';
 class App extends Component {
 
-  state = {socket: socketIOClient('http://localhost:8081')}
+  state = {socket: socketIOClient('https://storythief.herokuapp.com/')}
 
   render() {
     return (
