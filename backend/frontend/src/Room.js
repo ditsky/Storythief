@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 class Room extends Component {
 
@@ -36,7 +37,7 @@ class Room extends Component {
       <div className="Room">
         <h1> Welcome to {this.state.roomName} </h1>
         <p> Players: {this.state.players} </p>
-        <button onClick={this.handleClick}> Start Game </button>
+        <Button color="danger" onClick={this.handleClick}> Start Game </Button>
       </div>
     )
   }

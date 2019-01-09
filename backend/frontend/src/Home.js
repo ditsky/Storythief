@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class Home extends Component {
   constructor(props) {
@@ -33,32 +33,34 @@ class Home extends Component {
     return (
       <div className="Home">
         <h2> StoryThief </h2>
-        <p> Join a Room: </p>
-        <header className="Home-header">
-          <form onSubmit={this.handleSubmit} >
-          <label>
-            Room name:
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleRoomChange}
-            />
-          </label>
-          <br>
-          </br>
-          <label>
-             username:
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleUserChange}
-            />
-          </label>
-          <br>
-          </br>
-          <Button className="btn btn-primary" color="danger" type="submit" value="Submit"> Submit </Button>
-        </form>
-        </header>
+        <div className="jumbotron">
+          <h1 className="h3 mb-3 font-weight-normal">Join a room:</h1>
+          <header className="Home-header">
+            <Form className="form-signin" onSubmit={this.handleSubmit} >
+            <Label>
+              Room name:
+              <Input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleRoomChange}
+              />
+            </Label>
+            <br>
+            </br>
+            <Label>
+               Username:
+              <Input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleUserChange}
+              />
+            </Label>
+            <br>
+            </br>
+            <Button className="btn btn-primary" color="danger" type="submit" value="Submit"> Submit </Button>
+          </Form>
+          </header>
+        </div>
       </div>
     );
   }
