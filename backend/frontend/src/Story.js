@@ -38,6 +38,7 @@ class Story extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log((this.state.turn + 1) % (this.state.players));
     this.props.socket.emit('post story', this.state.story + " " + this.state.value, (this.state.turn + 1) % (this.state.players));
   }
 
