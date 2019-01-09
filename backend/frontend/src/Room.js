@@ -16,7 +16,7 @@ class Room extends Component {
   componentDidMount(){
     this.props.socket.on('new player', players => {
       var list = players.split(",");
-      this.setState({players: players, size: list.length});
+      this.setState({players: players, size: list.length-1});
     })
 
     this.props.socket.on('start game', (spy) => {
