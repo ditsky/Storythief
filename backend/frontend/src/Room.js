@@ -8,20 +8,20 @@ class Room extends Component {
     if (room==null){
       this.state = { socket: this.props.socket, roomName: '' };
     } else {
-      this.state = { socket: this.props.socket, roomName: room, players: this.props.players };
+      this.state = { socket: this.props.socket, roomName: room, players: this.props.players, size: 0};
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
     this.props.socket.on('new player', players => {
-      this.setState({players: players});
+      this.setState({players: players, size: this.state.size+1});
     })
 
     this.props.socket.on('start game', (spy) => {
       this.props.history.push({
         pathname: '/game',
-        state: {spy: spy, players: this.state.players}
+        state: {spy: spy, players: this.state.players, size: this.state.size}
       })
     })
   }
