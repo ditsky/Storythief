@@ -7,7 +7,7 @@ class Story extends Component {
     super(props);
     var user = this.props.socket.id;
     var spy = this.props.location.state.spy;
-    this.state = {story: "Once upon a time...", value: "", spy: user === spy, turn: 0, gameTurn: 0, players: this.props.location.state.size, totalTurns: 0};
+    this.state = {story: "Once upon a time...", value: "", spy: user === spy, turn: 0, gameTurn: 0, players: this.props.location.state.size + 1, totalTurns: 0};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
