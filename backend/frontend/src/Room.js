@@ -36,7 +36,9 @@ class Room extends Component {
     return (
       <div className="Room">
         <h1> Welcome to {this.state.roomName} </h1>
-        <p> Players: {this.state.players} </p>
+        <br>
+        </br>
+        <h3> Players: {this.state.players} </h3>
         <Button color="danger" onClick={this.handleClick}> Start Game </Button>
       </div>
     )

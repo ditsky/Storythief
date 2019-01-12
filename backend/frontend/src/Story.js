@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Players from './Players';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class Story extends Component {
 

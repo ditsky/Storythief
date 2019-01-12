@@ -33,7 +33,9 @@ class Home extends Component {
     return (
       <div className="Home">
         <h2> StoryThief </h2>
-        <div className="jumbotron">
+        <br>
+        </br>
+        <div>
           <h1 className="h3 mb-3 font-weight-normal">Join a room:</h1>
           <header className="Home-header">
             <Form className="form-signin" onSubmit={this.handleSubmit} >
