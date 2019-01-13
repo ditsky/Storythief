@@ -3,6 +3,17 @@
   //background-color: #E5FFE4;
 }
 
+.width {
+  width: 100%;
+  max-width: 1000px;
+  padding: 15px;
+  margin: auto;
+}
+
+.center{
+    text-align: center;
+}
+
 .form-signin {
     width: 100%;
     max-width: 330px;

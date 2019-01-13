@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import './App.css';
 
 class Home extends Component {
   constructor(props) {
@@ -33,6 +34,25 @@ class Home extends Component {
     return (
       <div className="Home">
         <h2> StoryThief </h2>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <div className="width">
+
+            <h2> Introduction: </h2>
+            <p className="center"> StoryThief is a deception game where all players are attempting to
+            discover who is the spy, and the spy needs to try to avoid getting caught!
+            Everyone needs to take turns adding to the story based on the given prompt.
+            If you are the spy, you will not recieve the prompt, and have to try and blend
+            in without it! </p>
+            <p> To play with friends, everyone needs to join a room with the same roomname below </p>
+
+        </div>
+        <br>
+        </br>
         <br>
         </br>
         <div>

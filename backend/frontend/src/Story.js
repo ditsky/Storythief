@@ -57,23 +57,40 @@ class Story extends Component {
     let form = null;
     if (turn == gameTurn) {
       form =
-      <form onSubmit={this.handleSubmit}>
-        <input type = "text" value={this.state.value} onChange={this.handleChange}/>
+      <Form onSubmit={this.handleSubmit} className="form-control-lg">
+        <textarea rows="3" cols="40" value={this.state.value} onChange={this.handleChange}/>
+        <br>
+        </br>
         <input type="submit" value="Submit"/>
-      </form>
+      </Form>
     }
     return form;
   }
 
+  render
+
   render() {
-    let phrase = null;
-    phrase = this.renderPhrase(this.state.spy);
+    let phrase = this.renderPhrase(this.state.spy);
     let form = this.renderForm(this.state.turn, this.state.gameTurn);
+    let add = null;
+    if (this.state.turn==this.state.gameTurn) {
+      add = <p className="display-4">Add to the story!</p>
+    }
     return (
       <div>
-        <h1 className="display-4">Game Page</h1>
+        {add}
         {form}
           <div>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
             <br>
             </br>
             {phrase}
