@@ -6,15 +6,46 @@ import Home from'./Home';
 import Room from'./Room';
 import Story from './Story';
 import Voting from './Voting';
+import Join from './Join';
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 
 import socketIOClient from 'socket.io-client';
 class App extends Component {
 
-  state = {socket: socketIOClient('https://storythief.herokuapp.com/')}
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      socket: socketIOClient('https://storythief.herokuapp.com/'),
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+
 
   render() {
     return (
       <div className="App">
+      <Navbar className="bg-light" color="faded" light>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <NavbarBrand href="/" className="mr-auto">StoryThief</NavbarBrand>
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://github.com/ditsky/storythief">GitHub</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
         <BrowserRouter>
           <div>
             <Route
@@ -26,6 +57,10 @@ class App extends Component {
                   socket={this.state.socket}
                 />
               )}
+            />
+            <Route
+              path="/join"
+              render={props => <Join {...props} socket={this.state.socket}/>}
             />
             <Route
               path="/room"

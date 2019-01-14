@@ -78,6 +78,13 @@ class Story extends Component {
     }
     return (
       <div>
+      <br>
+      </br>
+      <br>
+      </br>
+      <br>
+      </br>
+        {phrase}
         {add}
         {form}
           <div>
@@ -93,7 +100,7 @@ class Story extends Component {
             </br>
             <br>
             </br>
-            {phrase}
+
             <h1 className="display-4">Current Story</h1>
             <div className="jumbotron">
               <ul id="storyarea"> {this.state.story} </ul>

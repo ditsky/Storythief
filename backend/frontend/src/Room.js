@@ -35,6 +35,12 @@ class Room extends Component {
   render() {
     return (
       <div className="Room">
+      <br>
+      </br>
+      <br>
+      </br>
+      <br>
+      </br>
         <h1> Welcome to {this.state.roomName} </h1>
         <br>
         </br>

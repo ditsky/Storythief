@@ -5,13 +5,19 @@
 
 .width {
   width: 100%;
-  max-width: 1000px;
-  padding: 15px;
+  max-width: 800px;
+  padding: 0px;
   margin: auto;
 }
 
 .center{
     text-align: center;
+}
+
+
+.lg {
+  font-size: 70px;
+
 }
 
 .form-signin {
