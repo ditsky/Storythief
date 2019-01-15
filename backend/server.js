@@ -6,6 +6,7 @@ const port = process.env.PORT || 8081;
 const app = express();
 const socketServer = http.createServer(app);
 const io = socketIo(socketServer);
+const phrases = ["Andy goes to the circus", "A rainy day on Mars", "$1M BBQ competition", "Flaming hot Cheetos!", "Wendy's or McDonalds?", "Jimmy NEEDS new shoes", "One man enters, two men leave"];
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'frontend/build')));
@@ -49,6 +50,10 @@ io.on('connection', socket => {
     }
 
     io.sockets.to(socket.room).emit('start game', lastSocket.id);
+    var rand = phrases[Math.floor(Math.random() * phrases.length)];
+    io.sockets.to(socket.room).emit('phrase', rand);
+    console.log(rand);
+
     var turn = 0;
     for (var id in clients){
       var client = io.sockets.connected[id];

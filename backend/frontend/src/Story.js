@@ -9,12 +9,18 @@ class Story extends Component {
     var user = this.props.socket.id;
     var spy = this.props.location.state.spy;
     console.log(this.props.location.state.size);
-    this.state = {story: "Once upon a time...", value: "", spy: user === spy, turn: 0, gameTurn: 0, players: this.props.location.state.size, totalTurns: 0};
+    this.state = {story: "Once upon a time...", phrase: "", value: "", spy: user === spy, turn: 0, gameTurn: 0, players: this.props.location.state.size, totalTurns: 0};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
+
+    this.props.socket.on('phrase', (phrase) => {
+      console.log(phrase)
+      this.setState({phrase: phrase});
+    })
+
     this.props.socket.on('post story', (story,gameTurn) => {
       console.log(story)
       this.setState({story: story, gameTurn: gameTurn, totalTurns: this.state.totalTurns + 1});
@@ -46,7 +52,7 @@ class Story extends Component {
   renderPhrase = (spy) => {
     let phrase = null;
     if (!spy){
-      phrase = <p> Phrase: "Andy Goes to the circus!" </p>;
+      phrase = <p> Phrase: {this.state.phrase} </p>;
     } else {
       phrase = <p> You are the spy! Try and blend in! </p>;
     }

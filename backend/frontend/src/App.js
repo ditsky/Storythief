@@ -17,7 +17,7 @@ class App extends Component {
 
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.state = {
-      socket: socketIOClient('https://storythief.herokuapp.com/'),
+      socket: socketIOClient('https://storythief.herokuapp.com'),
       collapsed: true
     };
   }
